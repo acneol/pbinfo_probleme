@@ -1,0 +1,43 @@
+#include <cstring>
+
+int nr_vocale(char s[])
+{
+    
+    char voc[]={"aeiouAEIOU"};
+    int n, i=0;
+
+    while(s[i]!=NULL)
+    {
+        i++;
+    }
+    i--;
+    n=i;
+    if(n<0)
+        return 0;
+
+    if(n==0)
+    {
+        if(strchr(voc, s[n])!=NULL)
+        {
+            s[n]=NULL;
+            return nr_vocale(s)+1;
+        }
+        else
+            return 0;
+    }
+    else
+    {
+
+        if(strchr(voc, s[n])!=NULL)
+        {
+            s[n]=NULL;
+            return nr_vocale(s)+1;
+        }
+        else
+        {
+            s[n]=NULL;
+            return nr_vocale(s);
+        }
+
+    }
+}
